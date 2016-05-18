@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.3.0'
 
 gem 'rails', '>= 5.0.0.rc1', '< 5.1'
 gem 'pg', '~> 0.18'
@@ -12,15 +13,12 @@ gem 'turbolinks', '~> 5.x'
 gem 'jbuilder', '~> 2.0'
 
 group :development, :test do
-  gem 'byebug', platform: :mri
-end
-
-group :development do
   gem 'web-console'
   gem 'annotate'
   gem 'bullet'
   gem 'byebug'
   gem 'dotenv-rails'
+  gem 'factory_girl_rails'
   gem 'hirb'
   gem 'hirb-unicode'
   gem 'listen', '~> 3.0.5'
@@ -33,7 +31,6 @@ group :development do
 end
 
 group :test do
-  gem 'factory_girl_rails'
   gem 'rspec-rails'
 end
 
