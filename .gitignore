@@ -33,3 +33,6 @@ bower.json
 
 # node
 /node_modules
+
+# envfile
+.env
