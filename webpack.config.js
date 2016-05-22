@@ -39,61 +39,59 @@ if(!DEBUG){
   )
 }
 
-module.exports =  [
-  {
-    entry: {
-      application: entry_scripts
-    },
-    output: {
-      path: __dirname + '/server/public/assets',
-      filename: `${base_filename}.js`,
-      publicPath: publicPath
-    },
-    devtool: devtool,
-    plugins: plugins,
-    module: {
-      loaders: [
-        {
-          test: /\.jsx?$/,
-          exclude: /(node_modules)/,
-          loaders: ["babel"]
-        },
-        {
-          test: /\.scss$/,
-          loader: scss_loader
-        },
-        {
-          test: /\.css$/,
-          loader: css_loader
-        },
-        {
-          test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-          loader: 'url-loader?mimetype=image/svg+xml'
-        },
-        {
-          test: /\.woff(\d+)?(\?v=\d+\.\d+\.\d+)?$/,
-          loader: 'url-loader?mimetype=application/font-woff'
-        },
-        {
-          test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-          loader: 'url-loader?mimetype=application/font-woff'
-        },
-        {
-          test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-          loader: 'url-loader?mimetype=application/font-woff'
-        },
-        {
-          test: /\.(jpg|png|gif)$/,
-          loader: 'file-loader?name=[path][name]-[hash].[ext]'
-        }
-      ]
-    },
-    resolve: {
-      extensions: ['', '.js', '.jsx', '.js.jsx', '.css', '.scss'],
-      root: path.resolve(__dirname, 'frontend')
-    },
-    devServer: {
-      headers: headers
-    }
+module.exports = {
+  entry: {
+    application: entry_scripts
+  },
+  output: {
+    path: __dirname + '/server/public/assets',
+    filename: `${base_filename}.js`,
+    publicPath: publicPath
+  },
+  devtool: devtool,
+  plugins: plugins,
+  module: {
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /(node_modules)/,
+        loaders: ["babel"]
+      },
+      {
+        test: /\.scss$/,
+        loader: scss_loader
+      },
+      {
+        test: /\.css$/,
+        loader: css_loader
+      },
+      {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'url-loader?mimetype=image/svg+xml'
+      },
+      {
+        test: /\.woff(\d+)?(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'url-loader?mimetype=application/font-woff'
+      },
+      {
+        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'url-loader?mimetype=application/font-woff'
+      },
+      {
+        test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'url-loader?mimetype=application/font-woff'
+      },
+      {
+        test: /\.(jpg|png|gif)$/,
+        loader: 'file-loader?name=[path][name]-[hash].[ext]'
+      }
+    ]
+  },
+  resolve: {
+    root: path.resolve(__dirname, 'frontend'),
+    extensions: ['', '.js', '.jsx', '.js.jsx', '.css', '.scss'],
+  },
+  devServer: {
+    headers: headers
   }
-]
+}
