@@ -15,14 +15,22 @@ gem 'jbuilder', '~> 2.0'
 gem "omniauth-google-oauth2"
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem 'slim-rails'
+
+group :development do
+  gem 'web-console'
+  gem "better_errors"
+  gem "binding_of_caller"
+end
 
 group :development, :test do
-  gem 'web-console'
   gem 'annotate'
   gem 'bullet'
   gem 'byebug'
   gem 'dotenv-rails'
   gem 'factory_girl_rails'
+  gem 'foreman'
+  gem 'quiet_assets'
   gem 'hirb'
   gem 'hirb-unicode'
   gem 'listen', '~> 3.0.5'
