@@ -1,0 +1,1 @@
+docker-compose run --rm puma bundle exec rake db:migration
