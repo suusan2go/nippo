@@ -1,46 +1,42 @@
 source 'https://rubygems.org'
 
-ruby '2.3.0'
-
-gem 'rails', '>= 5.0.0.rc1', '< 5.1'
-gem 'pg', '~> 0.18'
-gem 'puma', '~> 3.0'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
-gem 'jquery-rails'
-gem 'turbolinks', '~> 5.x'
-gem 'jbuilder', '~> 2.0'
-
-gem "omniauth-google-oauth2"
-gem 'omniauth-facebook'
-gem 'omniauth-twitter'
-gem 'slim-rails'
-
-group :development do
-  gem 'web-console'
-  gem "better_errors"
-  gem "binding_of_caller"
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
 end
 
+gem 'coffee-rails', '~> 4.2'
+gem 'hypernova'
+gem 'pg', '~> 0.18'
+gem 'puma', '~> 3.0'
+gem 'rails', '~> 5.0.1'
+gem 'sass-rails', '~> 5.0'
+gem 'uglifier', '>= 1.3.0'
+gem 'mini_racer'
+
 group :development, :test do
-  gem 'annotate'
-  gem 'bullet'
-  gem 'byebug'
-  gem 'dotenv-rails'
-  gem 'factory_girl_rails'
-  gem 'foreman'
-  gem 'quiet_assets'
-  gem 'hirb'
-  gem 'hirb-unicode'
-  gem 'listen', '~> 3.0.5'
-  gem 'pry-rails'
-  gem 'pry-doc'
+  gem 'awesome_print'
+  gem 'byebug', platform: :mri
+  gem 'factory_girl'
+  gem 'pry-awesome_print'
   gem 'pry-byebug'
+  gem 'pry-doc'
+  gem 'pry-rails'
+  gem 'pry-stack_explorer'
+  gem 'rails_best_practices'
   gem 'rspec-rails'
-  gem 'rubocop', require: false
+  gem 'rubocop'
+  gem 'tapp'
+end
+
+group :development do
+  gem 'activerecord-cause'
+  gem 'annotate'
+  gem 'better_errors'
+  gem 'bullet'
+  gem 'letter_opener_web'
+  gem 'web-console', '>= 3.3.0'
+  gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
