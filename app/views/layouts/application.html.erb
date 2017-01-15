@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Nippo</title>
+    <title>Echigoya</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <%= csrf_meta_tags %>
   </head>
-    <%= stylesheet_link_tag webpack_asset_path('application.css') %>
+
   <body>
     <%= yield %>
-    <%= javascript_include_tag webpack_asset_path('application.js') %>
+    <%= javascript_include_tag webpack_asset_path('bundle.js') %>
+    <%= stylesheet_link_tag webpack_asset_path('bundle.css') %>
   </body>
 </html>
