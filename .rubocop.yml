@@ -13,7 +13,7 @@ AllCops:
     - 'spec/**/*'
     - 'tmp/**/*'
     - 'node_modules/**/*'
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 2.4
 
 Rails:
   Enabled: true
