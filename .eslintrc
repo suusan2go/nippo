@@ -1,6 +1,11 @@
-{
-  "extends": "airbnb",
-  "settings": {
-    "import/resolver": "webpack"
-  }
-}
+extends: 'airbnb'
+settings:
+  import/resolver:
+    webpack:
+      config: 'webpack.config.client.js'
+parserOptions:
+  ecmaFeatures:
+    experimentalObjectRestSpread: true
+globals:
+  document: true
+  window: true

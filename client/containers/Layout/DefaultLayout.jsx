@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
+import Header from 'components/DefaultLayout/Header';
 import { connect } from 'react-redux';
-import './global.scss'; // eslint-disable-line
-import Header from 'components/layouts/Header';
+import 'stylesheets/global.scss'; // eslint-disable-line
 
-class Layout extends React.Component {
+class DefaultLayout extends React.Component {
   render() {
     return (
       <div className="wrapper">
@@ -14,7 +14,7 @@ class Layout extends React.Component {
   }
 }
 
-Layout.propTypes = {
+DefaultLayout.propTypes = {
   children: PropTypes.element.isRequired,
 };
 
@@ -24,4 +24,4 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 export default connect(mapStateToProps, {
-})(Layout);
+})(DefaultLayout);

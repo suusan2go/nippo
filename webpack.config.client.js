@@ -52,7 +52,7 @@ module.exports = {
       {
         test: /global\.(css|scss)/,
         include: [/global/],
-        loader: isProduction ? ExtractTextPlugin.extract('style', 'css-loader!less-loader!') : 'style-loader!css-loader!less-loader!',
+        loader: isProduction ? ExtractTextPlugin.extract('style', 'css-loader!sass-loader!') : 'style-loader!css-loader!sass-loader!',
       },
       {
         test: /\.(scss|css)$/,
@@ -80,6 +80,9 @@ module.exports = {
         loader: 'url-loader?name=[path][name]-[hash].[ext]',
       },
     ],
+  },
+  sassLoader: {
+    includePaths: [path.resolve(__dirname, './client/stylesheets')],
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.js.jsx', '.css', '.scss'],

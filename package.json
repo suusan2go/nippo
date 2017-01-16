@@ -20,6 +20,8 @@
     "babel-preset-react": "6.16.0",
     "babel-preset-stage-2": "6.18.0",
     "babel-resolver": "^1.1.0",
+    "bootstrap-material-design": "^0.5.10",
+    "bootstrap-sass": "^3.3.7",
     "clean-webpack-plugin": "0.1.14",
     "compression-webpack-plugin": "0.3.2",
     "css-loader": "^0.26.1",
