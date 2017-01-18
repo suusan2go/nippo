@@ -1,7 +1,12 @@
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 @import 'bootstrap/variables';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import './vendor/stylesheets/app.scss';
 @import '~bootstrap-material-design/sass/mixins';
 @import '~bootstrap-material-design/sass/shadows';
 @import '~bootstrap-material-design/sass/core';
 @import '~bootstrap-material-design/sass/ripples';
+
+body {
+  padding-top: 60px;
+}

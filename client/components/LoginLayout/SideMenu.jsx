@@ -1,10 +1,11 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
+import styles from './sidemenu.scss';
 
 class Header extends React.Component {
   render() {
     return (
-      <div className="left side-menu">
+      <div className={styles.sidemenu}>
         <div className="slimScrollDiv">
           <div className="sidebar-inner slimscrollleft">
             <div id="sidebar-menu">

@@ -3,17 +3,16 @@ import Header from 'components/LoginLayout/Header';
 import SideMenu from 'components/LoginLayout/SideMenu';
 import { connect } from 'react-redux';
 import 'stylesheets/global.scss'; // eslint-disable-line
+import styles from './LoginLayout.scss';
 
 class LoginLayout extends React.Component {
   render() {
     return (
       <div className="wrapper">
         <Header />
-        <div className="container-fluid">
-          <SideMenu />
-          <div className="main_content">
-            {this.props.children}
-          </div>
+        <SideMenu />
+        <div className={styles.main_content}>
+          {this.props.children}
         </div>
       </div>
     );

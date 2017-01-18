@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import Icon from 'images/giffy.png';
+import Icon from 'img/user/01.jpg';
 
 class ArticleList extends React.Component {
   render() {
