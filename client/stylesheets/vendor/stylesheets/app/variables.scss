@@ -1,3 +1,4 @@
+@import '~bootstrap-material-design/sass/colors';
 //
 // Variables
 // --------------------------------------------------
@@ -14,13 +15,12 @@ $gray:                   #dde6e9;
 $gray-light:             #e4eaec;
 $gray-lighter:           #edf1f2;
 
-// Classic brand colors
-
-$brand-primary:          #5d9cec;
-$brand-success:          #27c24c;
-$brand-info:             #23b7e5;
-$brand-warning:          #ff902b;
-$brand-danger:           #f05050;
+// Bootstrap brand color customization
+$brand-primary: $teal !default;
+$brand-success: $green !default;
+$brand-danger: $red !default;
+$brand-warning: $deep-orange !default;
+$brand-info: $light-blue !default;
 
 // New brand colors
 
