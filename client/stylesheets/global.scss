@@ -6,7 +6,8 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 @import '~bootstrap-material-design/sass/shadows';
 @import '~bootstrap-material-design/sass/core';
 @import '~bootstrap-material-design/sass/ripples';
+@import '~font-awesome/scss/font-awesome';
 
-body {
-  padding-top: 60px;
+.main {
+  padding-top: 80px;
 }

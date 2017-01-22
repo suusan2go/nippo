@@ -8,7 +8,9 @@ class DefaultLayout extends React.Component {
     return (
       <div className="wrapper">
         <Header />
-        {this.props.children}
+        <div className="main">
+          {this.props.children}
+        </div>
       </div>
     );
   }

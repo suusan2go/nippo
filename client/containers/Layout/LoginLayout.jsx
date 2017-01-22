@@ -3,7 +3,6 @@ import Header from 'components/LoginLayout/Header';
 import SideMenu from 'components/LoginLayout/SideMenu';
 import { connect } from 'react-redux';
 import 'stylesheets/global.scss'; // eslint-disable-line
-import styles from './LoginLayout.scss';
 
 class LoginLayout extends React.Component {
   render() {
@@ -11,9 +10,9 @@ class LoginLayout extends React.Component {
       <div className="wrapper">
         <Header />
         <SideMenu />
-        <div className={styles.main_content}>
+        <section className="main">
           {this.props.children}
-        </div>
+        </section>
       </div>
     );
   }
