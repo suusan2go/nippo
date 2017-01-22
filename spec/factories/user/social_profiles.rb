@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :social_profile do
+  factory :social_profile, class: 'User::SocialProfile' do
     user nil
     provider "MyString"
     uid "MyString"

@@ -27,7 +27,7 @@ module.exports = {
     new ManifestPlugin({
       fileName: 'webpack-manifest.json',
     }),
-    isProduction && new ExtractTextPlugin(isProduction ? '[name]-[hash].css' : '[name].css'),
+    new ExtractTextPlugin(isProduction ? '[name]-[hash].css' : '[name].css'),
     isProduction && new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,
@@ -52,7 +52,7 @@ module.exports = {
       {
         test: /global\.(css|scss)/,
         include: [/global/],
-        loader: isProduction ? ExtractTextPlugin.extract('style', 'css-loader!sass-loader!') : 'style-loader!css-loader!sass-loader!',
+        loader: ExtractTextPlugin.extract('style', 'css-loader!sass-loader!'),
       },
       {
         test: /\.(scss|css)$/,

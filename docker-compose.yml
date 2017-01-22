@@ -73,6 +73,7 @@ services:
 #      - ./scripts:/app/scripts
 #      - bundle:/bundle
   puma:
+    env_file: .env
     build:
       context: ./
       dockerfile: ./docker/rails/Dockerfile
