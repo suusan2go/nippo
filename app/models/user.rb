@@ -26,7 +26,7 @@ class User < ApplicationRecord
     def find_or_create_from_social_profile(social_profile:)
       return social_profile.user if social_profile.user
       social_profile.user = User.create! do |user|
-        user.name = social_profile.user
+        user.name = social_profile.name
         user.email = social_profile.email
         user.avatar_url = social_profile.image_url
       end
