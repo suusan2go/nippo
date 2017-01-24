@@ -1,12 +1,18 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import { Link } from 'react-router';
 import Icon from 'img/user/01.jpg';
 
 class ArticleList extends React.Component {
   render() {
     return (
-      <div className="container grid-960">
+      <div className="container-fluid">
         <Helmet title="ArticleList" />
+        <section className="row">
+          <div className="pull-right">
+            <Link to="/diary/new" className="btn btn-primary btn-raised">日報を書く</Link>
+          </div>
+        </section>
         <div className="list-group">
           <div className="list-group-item">
             <div className="row-picture">

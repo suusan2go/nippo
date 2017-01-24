@@ -1,23 +1,21 @@
 import React, { PropTypes } from 'react';
 import Header from 'components/LoginLayout/Header';
-import SideMenu from 'components/LoginLayout/SideMenu';
 import { connect } from 'react-redux';
 
-class LoginLayout extends React.Component {
+class FullLayout extends React.Component {
   render() {
     return (
       <div className="wrapper">
         <Header />
-        <SideMenu />
-        <section className="main">
+        <div className="container-fluid main">
           {this.props.children}
-        </section>
+        </div>
       </div>
     );
   }
 }
 
-LoginLayout.propTypes = {
+FullLayout.propTypes = {
   children: PropTypes.element.isRequired,
 };
 
@@ -27,4 +25,4 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 export default connect(mapStateToProps, {
-})(LoginLayout);
+})(FullLayout);
