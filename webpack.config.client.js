@@ -11,7 +11,7 @@ module.exports = {
     bundle: [
       !isProduction && 'webpack/hot/dev-server',
       'babel-polyfill',
-      `${__dirname}/client/AppRouter.jsx`,
+      `${__dirname}/client/javascripts/AppRouter.jsx`,
     ].filter(Boolean),
   },
   output: {
@@ -86,7 +86,10 @@ module.exports = {
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.js.jsx', '.css', '.scss'],
-    root: path.resolve(__dirname, 'client'),
+    root: [
+      path.resolve(__dirname, 'client/javascripts'),
+      path.resolve(__dirname, 'client'),
+    ],
   },
   devServer: {
     host: '0.0.0.0',
