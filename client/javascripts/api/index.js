@@ -24,9 +24,9 @@ function sendPost(url, data) {
 }
 
 export function createDiary({ title, body }) {
-  return sendPost('/diaries', { title, body });
+  return sendPost('/api/diaries', { title, body });
 }
 
 export function updateDiary({ diaryId, title, body }) {
-  return sendPatch(`/diaries/${diaryId}`, { title, body });
+  return sendPatch(`/api/diaries/${diaryId}`, { title, body });
 }

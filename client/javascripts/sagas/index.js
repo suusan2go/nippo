@@ -1,4 +1,4 @@
-import diarySaga from './diary';
+import diarySaga from './diaryEditor';
 
 export default function* rootSaga() {
   yield [

@@ -37,6 +37,10 @@ module.exports = {
         loader: ExtractTextPlugin.extract('style', 'css-loader?modules!sass-loader!'),
       },
       {
+        test: /\.json$/,
+        loader: 'json',
+      },
+      {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url-loader?mimetype=image/svg+xml',
       },

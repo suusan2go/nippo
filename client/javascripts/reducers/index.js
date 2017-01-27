@@ -1,15 +1,8 @@
 import { combineReducers } from 'redux';
-
-const entities = (state = { users: {}, repos: {} }, action) => {
-  if (action.response && action.response.entities) {
-    return {};
-  }
-
-  return state;
-};
+import diaryEditor from './DiaryEditor';
 
 const rootReducer = combineReducers({
-  entities,
+  diaryEditor,
 });
 
 export default rootReducer;
