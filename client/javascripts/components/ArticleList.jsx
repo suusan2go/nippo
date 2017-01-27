@@ -10,7 +10,7 @@ class ArticleList extends React.Component {
         <Helmet title="ArticleList" />
         <section className="row">
           <div className="pull-right">
-            <Link to="/diary/new" className="btn btn-primary btn-raised">日報を書く</Link>
+            <Link to="/diaries/new" className="btn btn-primary btn-raised">日報を書く</Link>
           </div>
         </section>
         <div className="list-group">

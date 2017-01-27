@@ -11,7 +11,7 @@ export default (
       <IndexRoute component={ArticleList} />
     </Route>
     <Route component={FullLayout} >
-      <Route path="/diary/new" component={DiaryEditor} />
+      <Route path="/diaries/new" component={DiaryEditor} />
     </Route>
   </Route>
 );
