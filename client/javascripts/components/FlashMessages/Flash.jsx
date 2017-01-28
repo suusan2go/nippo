@@ -1,9 +1,14 @@
 import React from 'react';
 
+const autoCloseSeconds = 10;
 export default class Flash extends React.Component {
   constructor(props) {
     super(props);
     this.handleClickClose = this.handleClickClose.bind(this);
+  }
+
+  componentDidMount() {
+    setTimeout(() => this.props.removeFlashMessage(this.props.id), autoCloseSeconds * 1000);
   }
 
   handleClickClose() {
