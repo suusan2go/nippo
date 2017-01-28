@@ -16,6 +16,7 @@
 
 class User < ApplicationRecord
   has_many :social_profiles, class_name: User::SocialProfile
+  has_many :diaries
 
   class << self
     def find_or_create_from_omniauth(omniauth)
