@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: diaries
+# Table name: diary_entries
 #
 #  id         :integer          not null, primary key
 #  title      :string           not null
@@ -11,14 +11,14 @@
 #
 # Indexes
 #
-#  index_diaries_on_user_id  (user_id)
+#  index_diary_entries_on_user_id  (user_id)
 #
 # Foreign Keys
 #
-#  fk_rails_f03fd03c63  (user_id => users.id)
+#  fk_rails_41491c9ce3  (user_id => users.id)
 #
 
-class Diary < ApplicationRecord
+class DiaryEntry < ApplicationRecord
   belongs_to :user
 
   validates :title, presence: true

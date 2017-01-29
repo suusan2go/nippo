@@ -15,13 +15,13 @@ ActiveRecord::Schema.define(version: 20170124130049) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "diaries", force: :cascade do |t|
+  create_table "diary_entries", force: :cascade do |t|
     t.string   "title",      null: false
     t.text     "body",       null: false
     t.integer  "user_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_diaries_on_user_id", using: :btree
+    t.index ["user_id"], name: "index_diary_entries_on_user_id", using: :btree
   end
 
   create_table "user_social_profiles", force: :cascade do |t|
@@ -51,6 +51,6 @@ ActiveRecord::Schema.define(version: 20170124130049) do
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
-  add_foreign_key "diaries", "users"
+  add_foreign_key "diary_entries", "users"
   add_foreign_key "user_social_profiles", "users"
 end

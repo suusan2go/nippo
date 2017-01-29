@@ -1,10 +1,10 @@
-import DiraryEditor from 'components/DiaryEditor';
-import * as actionCreators from 'actions/diaryEditorActionCreators';
+import DiraryEntryForm from 'components/DiaryEntryForm';
+import * as actionCreators from 'actions/diaryEntryFormActionCreators';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state, ownProps) => ({
-  diaryEditor: state.diaryEditor,
+  diaryEntryForm: state.diaryEntryForm,
   ownProps,
 });
 
@@ -12,4 +12,4 @@ const mapDispatchToProps = dispatch => (
   { actions: bindActionCreators(actionCreators, dispatch) }
 );
 
-export default connect(mapStateToProps, mapDispatchToProps)(DiraryEditor);
+export default connect(mapStateToProps, mapDispatchToProps)(DiraryEntryForm);

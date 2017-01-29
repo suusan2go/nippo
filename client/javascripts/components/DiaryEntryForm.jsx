@@ -11,15 +11,15 @@ function FieldGroup({ id, label, help, ...props }) {
   );
 }
 
-export default class DiraryEditor extends React.Component {
+export default class DiraryEntryForm extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(e) {
-    const { postDiary } = this.props.actions;
-    postDiary(this.props.diaryEditor);
+    const { postDiaryEntry } = this.props.actions;
+    postDiaryEntry({ ...this.props.diaryEntryForm });
     e.preventDefault();
   }
 
@@ -34,15 +34,15 @@ export default class DiraryEditor extends React.Component {
               type="text"
               label="タイトル"
               placeholder="Enter text"
-              value={this.props.diaryEditor.title}
-              onChange={this.props.actions.handleDiaryChange}
+              value={this.props.diaryEntryForm.title}
+              onChange={this.props.actions.handleDiaryEntryChange}
             />
             <FormGroup controlId="formControlsTextarea">
               <ControlLabel>本文</ControlLabel>
               <FormControl
                 componentClass="textarea" placeholder="textarea" rows={10} name="body"
-                value={this.props.diaryEditor.body}
-                onChange={this.props.actions.handleDiaryChange}
+                value={this.props.diaryEntryForm.body}
+                onChange={this.props.actions.handleDiaryEntryChange}
               />
             </FormGroup>
             <Button type="submit" className="btn-raised btn-primary">
@@ -61,8 +61,8 @@ export default class DiraryEditor extends React.Component {
   }
 }
 
-DiraryEditor.propTypes = {
+DiraryEntryForm.propTypes = {
   actions: React.PropTypes.shape({
-    postDiary: React.PropTypes.func.isRequired,
+    postDiaryEntry: React.PropTypes.func.isRequired,
   }),
 };

@@ -3,7 +3,7 @@ import { Route, IndexRoute } from 'react-router';
 import ArticleList from 'containers/ArticleList';
 import LoginLayout from 'containers/Layout/LoginLayout';
 import FullLayout from 'containers/Layout/FullLayout';
-import DiaryEditor from 'containers/DiaryEditor';
+import DiaryEntryForm from 'containers/DiaryEntryForm';
 
 export default (
   <Route path="/">
@@ -11,7 +11,7 @@ export default (
       <IndexRoute component={ArticleList} />
     </Route>
     <Route component={FullLayout} >
-      <Route path="/diaries/new" component={DiaryEditor} />
+      <Route path="/diaries/new" component={DiaryEntryForm} />
     </Route>
   </Route>
 );

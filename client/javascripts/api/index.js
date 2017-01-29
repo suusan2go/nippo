@@ -23,10 +23,10 @@ function sendPost(url, data) {
   return axios.post(url, data).then(response => response.data);
 }
 
-export function createDiary({ title, body }) {
-  return sendPost('/api/diaries', { title, body });
+export function createDiaryEntry({ title, body }) {
+  return sendPost('/api/diary_entries', { diary_entry: { title, body } });
 }
 
-export function updateDiary({ diaryId, title, body }) {
-  return sendPatch(`/api/diaries/${diaryId}`, { title, body });
+export function updateDiaryEntry({ diaryId, title, body }) {
+  return sendPatch(`/api/diary_entries/${diaryId}`, { title, body });
 }

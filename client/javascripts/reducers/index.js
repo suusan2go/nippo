@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import diaryEditor from './diaryEditor';
+import diaryEntryForm from './diaryEntryForm';
 import flashMessages from './flashMessages';
 
 const rootReducer = combineReducers({
-  diaryEditor,
+  diaryEntryForm,
   flashMessages,
 });
 
