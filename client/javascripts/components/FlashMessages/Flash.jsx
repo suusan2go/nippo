@@ -1,24 +1,28 @@
 import React from 'react';
+import style from './style.scss';
 
 const autoCloseSeconds = 10;
+const transitionSeconds = 0.3;
 export default class Flash extends React.Component {
   constructor(props) {
     super(props);
     this.handleClickClose = this.handleClickClose.bind(this);
+    this.state = { styles: { } };
   }
 
   componentDidMount() {
-    setTimeout(() => this.props.removeFlashMessage(this.props.id), autoCloseSeconds * 1000);
+    setTimeout(() => this.handleClickClose, autoCloseSeconds * 1000);
   }
 
   handleClickClose() {
-    this.props.removeFlashMessage(this.props.id);
+    this.setState({ styles: { opacity: 0.01 } });
+    setTimeout(() => this.props.removeFlashMessage(this.props.id), transitionSeconds * 1000);
   }
 
   render() {
     const { type, messages } = this.props;
     return (
-      <div className={`alert alert-dismissible alert-${type}`}>
+      <div className={`alert alert-dismissible alert-${type} ${style.flash}`} style={this.state.styles}>
         <button type="button" className="close" onClick={this.handleClickClose}>×</button>
         {messages}
       </div>
