@@ -9,8 +9,6 @@ export default (
   <Route path="/">
     <Route component={LoginLayout} >
       <IndexRoute component={ArticleList} />
-    </Route>
-    <Route component={FullLayout} >
       <Route path="/diaries/new" component={DiaryEntryForm} />
     </Route>
   </Route>

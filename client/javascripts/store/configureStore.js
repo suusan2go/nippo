@@ -1,3 +1,4 @@
+// @flow
 // if (process.env.NODE_ENV === 'production') {
 //   module.exports = require('./configureStore.prod');
 // } else {
@@ -15,7 +16,9 @@ let composeEnhancers = compose;
 if (process.env.NODE_ENV === 'development') {
   const createLogger = require('redux-logger'); //eslint-disable-line
   const logger = createLogger();
-  composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+  if (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ != null) {
+    composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__; //eslint-disable-line
+  }
   middlewares.push(logger);
 }
 

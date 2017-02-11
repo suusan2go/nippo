@@ -1,7 +1,8 @@
+// @flow
 import React from 'react';
 import { FormGroup, FormControl, ControlLabel, HelpBlock, Button } from 'react-bootstrap';
 
-function FieldGroup({ id, label, help, ...props }) {
+function FieldGroup({ id, label, help, ...props }: { id: string, label: string }) {
   return (
     <FormGroup controlId={id}>
       <ControlLabel>{label}</ControlLabel>
@@ -12,12 +13,14 @@ function FieldGroup({ id, label, help, ...props }) {
 }
 
 export default class DiraryEntryForm extends React.Component {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(e) {
+  props: Props;
+
+  handleSubmit(e: Event) {
     const { postDiaryEntry } = this.props.actions;
     postDiaryEntry({ ...this.props.diaryEntryForm });
     e.preventDefault();
@@ -25,44 +28,46 @@ export default class DiraryEntryForm extends React.Component {
 
   render() {
     return (
-      <div className="row">
-        <div className="col-sm-6">
-          <form onSubmit={this.handleSubmit}>
-            <FieldGroup
-              id="formControlsText"
-              name="title"
-              type="text"
-              label="タイトル"
-              placeholder="Enter text"
-              value={this.props.diaryEntryForm.title}
-              onChange={this.props.actions.handleDiaryEntryChange}
-            />
-            <FormGroup controlId="formControlsTextarea">
-              <ControlLabel>本文</ControlLabel>
-              <FormControl
-                componentClass="textarea" placeholder="textarea" rows={10} name="body"
-                value={this.props.diaryEntryForm.body}
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-12">
+            <form onSubmit={this.handleSubmit}>
+              <FieldGroup
+                id="formControlsText"
+                name="title"
+                type="text"
+                label="タイトル"
+                placeholder="Enter text"
+                value={this.props.diaryEntryForm.title}
                 onChange={this.props.actions.handleDiaryEntryChange}
               />
-            </FormGroup>
-            <Button type="submit" className="btn-raised btn-primary">
-              投稿する
-            </Button>
-            <Button type="submit" className="btn-raised">
-              下書き保存
-            </Button>
-          </form>
-        </div>
-        <div className="col-sm-6">
-          hoggeee
+              <FormGroup controlId="formControlsTextarea">
+                <ControlLabel>本文</ControlLabel>
+                <FormControl
+                  componentClass="textarea" placeholder="textarea" rows={10} name="body"
+                  value={this.props.diaryEntryForm.body}
+                  onChange={this.props.actions.handleDiaryEntryChange}
+                />
+              </FormGroup>
+              <Button type="submit" className="btn-raised btn-primary">
+                投稿する
+              </Button>
+              <Button type="submit" className="btn-raised">
+                下書き保存
+              </Button>
+            </form>
+          </div>
         </div>
       </div>
     );
   }
 }
 
-DiraryEntryForm.propTypes = {
-  actions: React.PropTypes.shape({
-    postDiaryEntry: React.PropTypes.func.isRequired,
-  }),
-};
+type Props = {
+  actions: {
+    postDiaryEntry: string,
+    handleDiaryEntryChange: string,
+  },
+  handleDiaryEntryChange: string,
+  diaryEntryForm: string,
+}

@@ -55,7 +55,6 @@
     "spectre.css": "^0.1.31",
     "style-loader": "0.13.1",
     "superagent": "3.3.1",
-    "tcomb": "^3.2.16",
     "url-loader": "0.5.7",
     "webpack": "1.14.0",
     "webpack-manifest-plugin": "1.1.0",
@@ -93,9 +92,6 @@
       "development": {
         "presets": [
           "react-hmre"
-        ],
-        "plugins": [
-          "tcomb"
         ]
       }
     }

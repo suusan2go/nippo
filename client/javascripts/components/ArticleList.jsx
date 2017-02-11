@@ -9,8 +9,10 @@ class ArticleList extends React.Component {
       <div className="container-fluid">
         <Helmet title="ArticleList" />
         <section className="row">
-          <div className="pull-right">
-            <Link to="/diaries/new" className="btn btn-primary btn-raised">日報を書く</Link>
+          <div className="col-sm-2 col-sm-offset-10">
+            <div className="pull-right">
+              <Link to="/diaries/new" className="btn btn-primary btn-raised">日報を書く</Link>
+            </div>
           </div>
         </section>
         <div className="list-group">

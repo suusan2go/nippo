@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import Header from 'components/LoginLayout/Header';
-import SideMenu from 'components/LoginLayout/SideMenu';
 import FlashMessages from 'containers/FlashMessages';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -12,7 +11,6 @@ class LoginLayout extends React.Component {
       <div className="wrapper">
         <FlashMessages />
         <Header />
-        <SideMenu />
         <section className="main">
           {this.props.children}
         </section>
