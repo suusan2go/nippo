@@ -1,7 +1,9 @@
-import diarySaga from './diaryEntryForm';
+import diaryEntryFormSaga from './diaryEntryForm';
+import diaryEntryListSaga from './diaryEntryList';
 
 export default function* rootSaga() {
   yield [
-    diarySaga(),
+    diaryEntryFormSaga(),
+    diaryEntryListSaga(),
   ];
 }

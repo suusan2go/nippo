@@ -12,6 +12,10 @@ axios.interceptors.request.use(
   error => Promise.reject(error),
 );
 
+function get(url: string) {
+  return axios.get(url).then(response => response.data);
+}
+
 function sendDelete(url: string) {
   return axios.delete(url).then(response => response.data);
 }
@@ -24,10 +28,14 @@ function sendPost(url: string, data: Object) {
   return axios.post(url, data).then(response => response.data);
 }
 
+export function fetchgDiaryEntries() {
+  return ('/api/diary_entries', { diary_entry: { title, body } });
+}
+
 export function createDiaryEntry({ title, body }: { title: string, body: string}) {
   return sendPost('/api/diary_entries', { diary_entry: { title, body } });
 }
 
-export function updateDiaryEntry({ diaryId, title, body }: { diaryId: number, title: string, body: string }) {
-  return sendPatch(`/api/diary_entries/${diaryId}`, { title, body });
+export function fetchDiaryEntries() {
+  return get('/api/diary_entries');
 }

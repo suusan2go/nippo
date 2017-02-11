@@ -1,13 +1,32 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Link } from 'react-router';
-import Icon from 'img/user/01.jpg';
 
-class ArticleList extends React.Component {
+type Props = {
+  actions: { fetchDiaryEntries: Action, clearDiaryEntries: Action },
+  diaryEntries: Array<{
+    title: string,
+    body: string,
+  }>
+}
+
+class DiaryEntryList extends React.Component {
+  componentWillMount() {
+    this.props.actions.fetchDiaryEntries();
+  }
+
+  componentWillUnmount() {
+    this.props.actions.clearDiaryEntries();
+  }
+
+
+  props: Props
+
   render() {
+    const { diaryEntries } = this.props;
     return (
       <div className="container-fluid">
-        <Helmet title="ArticleList" />
+        <Helmet title="DiaryEntryList" />
         <section className="row">
           <div className="col-sm-2 col-sm-offset-10">
             <div className="pull-right">
@@ -16,15 +35,21 @@ class ArticleList extends React.Component {
           </div>
         </section>
         <div className="list-group">
-          <div className="list-group-item">
-            <div className="row-picture">
-              <img className="circle" src="http://lorempixel.com/56/56/people/1" alt="icon" />
-            </div>
-            <div className="row-content">
-              <h4 className="list-group-item-heading">Tile with avatar</h4>
-              <p className="list-group-item-text">Donec id elit non mi porta gravida at eget metus</p>
-            </div>
-          </div>
+          {
+            diaryEntries.map(diaryEntry => (
+              <div>
+                <div className="list-group-item">
+                  <div className="row-picture">
+                    <img className="circle" src="http://lorempixel.com/56/56/people/1" alt="icon" />
+                  </div>
+                  <div className="row-content">
+                    <h4 className="list-group-item-heading">{diaryEntry.title}</h4>
+                    <p className="list-group-item-text">{diaryEntry.body}</p>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
           <div className="list-group-separator" />
           <div className="list-group-item">
             <div className="row-picture">
@@ -57,4 +82,4 @@ class ArticleList extends React.Component {
   }
 }
 
-export default ArticleList;
+export default DiaryEntryList;
