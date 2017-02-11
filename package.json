@@ -10,12 +10,14 @@
     "dev:server": "NODE_ENV=server webpack -w --config webpack.config.server.js --profile",
     "prod:client": "NODE_ENV=production webpack -p --config webpack.config.client.js",
     "prod:server": "NODE_ENV=production webpack -p --config webpack.config.server.js",
-    "hypernova": "NODE_ENV=production　NODE_PATH=./client node hypernova.js"
+    "hypernova": "NODE_ENV=production　NODE_PATH=./client node hypernova.js",
+    "flow": "flow"
   },
   "dependencies": {
     "axios": "^0.15.3",
     "babel-core": "6.21.0",
     "babel-loader": "6.2.10",
+    "babel-plugin-tcomb": "^0.3.24",
     "babel-polyfill": "6.20.0",
     "babel-preset-es2015": "6.18.0",
     "babel-preset-react": "6.16.0",
@@ -53,6 +55,7 @@
     "spectre.css": "^0.1.31",
     "style-loader": "0.13.1",
     "superagent": "3.3.1",
+    "tcomb": "^3.2.16",
     "url-loader": "0.5.7",
     "webpack": "1.14.0",
     "webpack-manifest-plugin": "1.1.0",
@@ -67,9 +70,13 @@
     "eslint": "^3.12.2",
     "eslint-config-airbnb": "13.0.0",
     "eslint-import-resolver-webpack": "0.8.0",
+    "eslint-plugin-flowtype": "^2.30.0",
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "2.2.3",
     "eslint-plugin-react": "6.8.0",
+    "flow-babel-webpack-plugin": "^1.0.1",
+    "flow-bin": "^0.39.0",
+    "flow-typed": "^2.0.0",
     "jsdom": "9.9.1",
     "mocha": "3.2.0",
     "react-addons-test-utils": "15.4.1",
@@ -86,6 +93,9 @@
       "development": {
         "presets": [
           "react-hmre"
+        ],
+        "plugins": [
+          "tcomb"
         ]
       }
     }

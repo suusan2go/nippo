@@ -3,6 +3,7 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const FlowBabelWebpackPlugin = require('flow-babel-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -41,6 +42,7 @@ module.exports = {
       threshold: 10240,
       minRatio: 0.8,
     }),
+    !isProduction && new FlowBabelWebpackPlugin(),
   ].filter(Boolean),
   module: {
     loaders: [

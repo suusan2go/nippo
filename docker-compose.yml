@@ -20,6 +20,8 @@ services:
       - ./public/assets:/app/public/assets
       - ./webpack.config.client.js:/app/webpack.config.client.js
       - ./yarn.lock:/app/yarn.lock
+      - ./.flowconfig:/app/.flowconfig
+      - ./flow-typed:/app/flow-typed
       - node_modules:/app/node_modules
   webpack-server:
     <<: *node
