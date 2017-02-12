@@ -14,8 +14,7 @@ class Api::DiaryEntriesController < Api::ApplicationController
     end
   end
 
-  def update
-  end
+  def update; end
 
   private
 
