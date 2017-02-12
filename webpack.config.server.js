@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: {
-    ServerRouter: `${__dirname}/client/ServerRouter.jsx`,
+    ServerRouter: `${__dirname}/client/javascripts/ServerRouter.jsx`,
   },
   target: 'node',
   output: {
@@ -37,6 +37,10 @@ module.exports = {
         loader: ExtractTextPlugin.extract('style', 'css-loader?modules!sass-loader!'),
       },
       {
+        test: /\.json$/,
+        loader: 'json',
+      },
+      {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url-loader?mimetype=image/svg+xml',
       },
@@ -63,6 +67,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.js.jsx', '.css', '.scss'],
-    root: path.resolve(__dirname, 'client'),
+    root: [
+      path.resolve(__dirname, 'client/javascripts'),
+      path.resolve(__dirname, 'client'),
+    ],
   },
 };

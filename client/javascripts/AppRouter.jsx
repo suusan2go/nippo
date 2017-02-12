@@ -1,12 +1,14 @@
 import React from 'react';
-import { createStore } from 'redux';
+import configureStore from 'store/configureStore.js';
 import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import { renderReact } from 'hypernova-react';
 import reducers from 'reducers';
 import routes from 'routes';
 
-const store = createStore(reducers);
+import 'stylesheets/global.scss'; // eslint-disable-line
+
+const store = configureStore(reducers);
 const AppRouter = () => (
   <Provider store={store}>
     <Router history={browserHistory}>

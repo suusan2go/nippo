@@ -3,6 +3,7 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const FlowBabelWebpackPlugin = require('flow-babel-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -11,7 +12,7 @@ module.exports = {
     bundle: [
       !isProduction && 'webpack/hot/dev-server',
       'babel-polyfill',
-      `${__dirname}/client/AppRouter.jsx`,
+      `${__dirname}/client/javascripts/AppRouter.jsx`,
     ].filter(Boolean),
   },
   output: {
@@ -41,6 +42,7 @@ module.exports = {
       threshold: 10240,
       minRatio: 0.8,
     }),
+    !isProduction && new FlowBabelWebpackPlugin(),
   ].filter(Boolean),
   module: {
     loaders: [
@@ -86,7 +88,10 @@ module.exports = {
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.js.jsx', '.css', '.scss'],
-    root: path.resolve(__dirname, 'client'),
+    root: [
+      path.resolve(__dirname, 'client/javascripts'),
+      path.resolve(__dirname, 'client'),
+    ],
   },
   devServer: {
     host: '0.0.0.0',
