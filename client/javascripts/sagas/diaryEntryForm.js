@@ -4,6 +4,7 @@ import {
   POST_DIARY_ENTRY,
   postDiaryEntrySuccess,
   postDiaryEntryFailed,
+  clearDiaryEntry,
 } from 'actions/diaryEntryFormActionCreators';
 import {
   addWarningFlashMessage,
@@ -18,6 +19,7 @@ export function* handlePostDiaryEntry(action) {
     yield put(postDiaryEntrySuccess(payload));
     yield put(removeAllFlashMessages());
     yield put(addSuccessFlashMessage('成功しました'));
+    yield put(clearDiaryEntry());
     browserHistory.push('/');
   } catch (error) {
     yield put(postDiaryEntryFailed(error));

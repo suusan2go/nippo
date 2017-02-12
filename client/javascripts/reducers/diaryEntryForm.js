@@ -6,6 +6,10 @@ const dairyEditor = handleActions({
     title: action.payload.title === undefined ? state.title : action.payload.title,
     body: action.payload.body === undefined ? state.body : action.payload.body,
   }),
+  [diaryActions.clearDiaryEntry]: () => ({
+    title: '',
+    body: '',
+  }),
 }, { title: '', body: '' });
 
 export default dairyEditor;
