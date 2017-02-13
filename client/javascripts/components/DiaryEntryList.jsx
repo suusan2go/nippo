@@ -47,35 +47,10 @@ class DiaryEntryList extends React.Component {
                     <p className="list-group-item-text">{diaryEntry.body}</p>
                   </div>
                 </div>
+                <div className="list-group-separator" />
               </div>
             ))
           }
-          <div className="list-group-separator" />
-          <div className="list-group-item">
-            <div className="row-picture">
-              <img className="circle" src="http://lorempixel.com/56/56/people/6" alt="icon" />
-            </div>
-            <div className="row-content">
-              <h4 className="list-group-item-heading">Tile with another avatar</h4>
-
-              <p className="list-group-item-text">Maecenas sed diam eget risus varius blandit.</p>
-            </div>
-          </div>
-          <div className="list-group-separator" />
-          <div className="list-group-item">
-            <div className="row-action-primary checkbox">
-              <label>
-                <input type="checkbox" />
-                <span className="checkbox-material"><span className="check" /></span>
-              </label>
-            </div>
-            <div className="row-content">
-              <h4 className="list-group-item-heading">Tile with a checkbox in it</h4>
-
-              <p className="list-group-item-text">Donec id elit non mi risus varius blandit.</p>
-            </div>
-          </div>
-          <div className="list-group-separator" />
         </div>
       </div>
     );
