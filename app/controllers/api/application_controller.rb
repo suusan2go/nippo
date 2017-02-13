@@ -12,6 +12,6 @@ class Api::ApplicationController < ApplicationController
   end
 
   def render_json(props:, status: :ok)
-    render json: common_props.merge(props).as_json, status: status
+    render json: common_props.merge(props.as_json), status: status
   end
 end
