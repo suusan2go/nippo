@@ -10,7 +10,7 @@ machine:
 
 dependencies:
   pre:
-    - gem update --systems
+    - gem update --system
 
 test:
   override:
