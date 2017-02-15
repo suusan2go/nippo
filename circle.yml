@@ -9,8 +9,8 @@ machine:
     REDIS_URL: redis://localhost:6379
 
 dependencies:
-  post:
-    - gem update --systems
+  pre:
+    - gem update --system
 
 test:
   override:
