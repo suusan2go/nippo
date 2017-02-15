@@ -27,6 +27,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-stack_explorer'
   gem 'rails_best_practices'
+  gem 'rspec_junit_formatter'
   gem 'rspec-rails'
   gem 'rubocop'
   gem 'tapp'
