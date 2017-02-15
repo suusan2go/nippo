@@ -25,7 +25,7 @@ class DiaryEntryList extends React.Component {
   render() {
     const { diaryEntries } = this.props;
     return (
-      <div className="container-fluid">
+      <div className="container">
         <Helmet title="DiaryEntryList" />
         <section className="row">
           <div className="col-sm-2 col-sm-offset-10">

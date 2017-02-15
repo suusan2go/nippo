@@ -1,31 +1,36 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
-import { DropdownButton, MenuItem, ButtonGroup, Button } from 'react-bootstrap';
-import styles from './header.scss';
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+
+type Props = {
+  currentUser: { name: string, avatar_url: string }
+}
 
 class Header extends React.Component {
+  props: Props
   render() {
+    const { currentUser } = this.props;
     return (
       <header className="topnavbar-wrapper">
-        <nav className="navbar navbar-default navbar-fixed-top">
-          <div className="container">
-            <div className="pull-left">
-              <Link className="navbar-brand" to="/">Nippo</Link>
-            </div>
-            <div className="pull-right">
-              <Link className="navbar-brand" to="/users"><i className="fa fa-user" /></Link>
-            </div>
-          </div>
-        </nav>
-        <div className={`visible-xs ${styles.sub_nav}`}>
-          <ButtonGroup justified className="btn-group-raised">
-            <DropdownButton title={<i className="fa fa-sticky-note">日報</i>} id="bg-justified-dropdown" className="btn btn-link">
-              <MenuItem eventKey="1">Dropdown link</MenuItem>
-              <MenuItem eventKey="2">Dropdown link</MenuItem>
-            </DropdownButton>
-            <Button href="#" className="btn btn-link"><i className="fa fa-star" />お気に入り</Button>
-          </ButtonGroup>
-        </div>
+        <Navbar collapseOnSelect className="navbar-fixed-top">
+          <Navbar.Header>
+            <Navbar.Brand>
+              <Link to="/">Familog</Link>
+            </Navbar.Brand>
+            <Navbar.Toggle />
+          </Navbar.Header>
+          <Navbar.Collapse>
+            <Nav pullRight>
+              <NavDropdown eventKey={3} title={<img src={currentUser.avatar_url} className="img-circle-raised" />} id="basic-nav-dropdown">
+                <MenuItem eventKey={3.1}>Action</MenuItem>
+                <MenuItem eventKey={3.2}>Another action</MenuItem>
+                <MenuItem eventKey={3.3}>Something else here</MenuItem>
+                <MenuItem divider />
+                <MenuItem eventKey={3.3}>ログアウト</MenuItem>
+              </NavDropdown>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
       </header>
     );
   }

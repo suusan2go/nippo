@@ -5,12 +5,17 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as flashMessagesActions from 'actions/flashMessagesActionCreators';
 
+type Props = {
+  currentUser: object
+}
+
 class LoginLayout extends React.Component {
+  props: Props
   render() {
     return (
       <div className="wrapper">
         <FlashMessages />
-        <Header />
+        <Header currentUser={this.props.currentUser} />
         <section className="main">
           {this.props.children}
         </section>
@@ -28,7 +33,7 @@ const mapDispatchToProps = dispatch => (
 );
 
 const mapStateToProps = (state, ownProps) => ({
-  state,
+  currentUser: state.currentUser,
   ownProps,
 });
 
