@@ -2,10 +2,9 @@ import React from 'react';
 import configureStore from 'store/configureStore';
 import { Provider } from 'react-redux';
 import { match, RouterContext } from 'react-router';
-import reducers from 'reducers';
 import routes from 'routes';
 
-const store = configureStore(reducers);
+const store = configureStore();
 const renderReact = require('hypernova-react').renderReact;
 
 class ServerRouter extends React.Component {
