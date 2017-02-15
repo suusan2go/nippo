@@ -15,6 +15,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'mini_racer'
 
+gem 'json_world'
+
 group :development, :test do
   gem 'awesome_print'
   gem 'byebug', platform: :mri
@@ -25,6 +27,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-stack_explorer'
   gem 'rails_best_practices'
+  gem 'rspec_junit_formatter'
   gem 'rspec-rails'
   gem 'rubocop'
   gem 'tapp'

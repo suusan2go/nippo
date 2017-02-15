@@ -1,0 +1,19 @@
+machine:
+  timezone:
+    Asia/Tokyo
+  ruby:
+    version: 2.4.0
+  node:
+    version: 7.3.0
+  environment:
+    REDIS_URL: redis://localhost:6379
+
+dependencies:
+  pre:
+    - gem update --system
+
+test:
+  override:
+    - RAILS_ENV=test bundle exec rspec -r rspec_junit_formatter --format progress --format RspecJunitFormatter -o $CIRCLE_TEST_REPORTS/rspec/junit.xml
+  pre:
+    - sudo service redis-server start
