@@ -18,6 +18,12 @@ class ApplicationController < ActionController::Base
   end
 
   def sign_in(user:)
+    reset_session
     session[:user_id] = user.id
+  end
+
+  def sign_out
+    session.delete(:user_id)
+    reset_session
   end
 end
