@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import { Link } from 'react-router';
 import { FormGroup, FormControl, ControlLabel, HelpBlock, Button } from 'react-bootstrap';
 
 function FieldGroup({ id, label, help, ...props }: { id: string, label: string }) {
@@ -52,9 +53,9 @@ export default class DiraryEntryForm extends React.Component {
               <Button type="submit" className="btn-raised btn-primary">
                 投稿する
               </Button>
-              <Button type="submit" className="btn-raised">
-                下書き保存
-              </Button>
+              <Link type="submit" className="btn btn-default btn-raised" to="/">
+                戻る
+              </Link>
             </form>
           </div>
         </div>
