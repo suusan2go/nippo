@@ -20,11 +20,9 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 export default function configureStore(initialState = {}) {
-  console.log(initialState);
   const store = createStore(rootReducer, initialState, composeEnhancers(
     applyMiddleware(...middlewares),
   ));
-  console.log(store.getState());
   sagaMiddleware.run(rootSaga);
   return store;
 }
