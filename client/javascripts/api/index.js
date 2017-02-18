@@ -28,8 +28,8 @@ function sendPost(url: string, data: Object) {
   return axios.post(url, data).then(response => response.data);
 }
 
-export function fetchgDiaryEntries() {
-  return ('/api/diary_entries', { diary_entry: { title, body } });
+export function signOut() {
+  return sendDelete('/api/sessions');
 }
 
 export function createDiaryEntry({ title, body }: { title: string, body: string}) {

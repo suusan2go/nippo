@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import * as authActions from 'actions/authActionCreators';
 
 const mapDispatchToProps = dispatch => (
-  { ...bindActionCreators(authActions, dispatch) }
+  { actions: bindActionCreators(authActions, dispatch) }
 );
 
 const mapStateToProps = (state, ownProps) => ({
