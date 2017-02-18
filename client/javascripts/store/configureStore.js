@@ -12,17 +12,14 @@ import rootReducer from '../reducers';
 const sagaMiddleware = createSagaMiddleware();
 const middlewares = [sagaMiddleware];
 
-let composeEnhancers = compose;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 if (process.env.NODE_ENV === 'development') {
   const createLogger = require('redux-logger'); //eslint-disable-line
   const logger = createLogger();
-  if (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ != null) {
-    composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__; //eslint-disable-line
-  }
   middlewares.push(logger);
 }
 
-export default function configureStore(initialState) {
+export default function configureStore(initialState = {}) {
   const store = createStore(rootReducer, initialState, composeEnhancers(
     applyMiddleware(...middlewares),
   ));

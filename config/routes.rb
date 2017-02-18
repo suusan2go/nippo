@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
+    resource :sessions, only: [:destroy]
     resources :diary_entries, only: [:index, :create, :update]
   end
 

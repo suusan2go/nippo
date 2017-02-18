@@ -25,7 +25,7 @@ class DiaryEntryList extends React.Component {
   render() {
     const { diaryEntries } = this.props;
     return (
-      <div className="container-fluid">
+      <div className="container">
         <Helmet title="DiaryEntryList" />
         <section className="row">
           <div className="col-sm-2 col-sm-offset-10">
@@ -37,10 +37,10 @@ class DiaryEntryList extends React.Component {
         <div className="list-group">
           {
             diaryEntries.map(diaryEntry => (
-              <div>
+              <div key={diaryEntry.id}>
                 <div className="list-group-item">
                   <div className="row-picture">
-                    <img className="circle" src="http://lorempixel.com/56/56/people/1" alt="icon" />
+                    <img className="circle" src={diaryEntry.user.avatar_url} alt="icon" />
                   </div>
                   <div className="row-content">
                     <h4 className="list-group-item-heading">{diaryEntry.title}</h4>
