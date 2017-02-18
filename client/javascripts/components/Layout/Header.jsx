@@ -1,6 +1,6 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { Link } from 'react-router';
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown, MenuItem } from 'react-bootstrap';
 import Style from './header.scss';
 
 type Props = {
@@ -32,7 +32,9 @@ class Header extends React.Component {
                 <MenuItem eventKey={3.2}>Another action</MenuItem>
                 <MenuItem eventKey={3.3}>Something else here</MenuItem>
                 <MenuItem divider />
-                <MenuItem eventKey={3.3}>ログアウト</MenuItem>
+                <MenuItem eventKey={3.3}>
+                  <button className="btn-link">ログアウト</button>
+                </MenuItem>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>

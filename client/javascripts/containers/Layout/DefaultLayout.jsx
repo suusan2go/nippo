@@ -1,29 +1,19 @@
-import React, { PropTypes } from 'react';
-import Header from 'components/DefaultLayout/Header';
-import { connect } from 'react-redux';
-import 'stylesheets/global.scss'; // eslint-disable-line
+import React from 'react';
+import Header from 'containers/Layout/Header';
+import FlashMessages from 'containers/FlashMessages';
 
-class DefaultLayout extends React.Component {
-  render() {
-    return (
-      <div className="wrapper">
-        <Header />
-        <div className="main">
-          {this.props.children}
-        </div>
-      </div>
-    );
-  }
+type Props = {
+  children: React.Element<*>,
 }
 
-DefaultLayout.propTypes = {
-  children: PropTypes.element.isRequired,
-};
+const DefaultLayout = (props: Props) => (
+  <div className="wrapper">
+    <FlashMessages />
+    <Header />
+    <section className="main">
+      {props.children}
+    </section>
+  </div>
+);
 
-const mapStateToProps = (state, ownProps) => ({
-  state,
-  ownProps,
-});
-
-export default connect(mapStateToProps, {
-})(DefaultLayout);
+export default DefaultLayout;
