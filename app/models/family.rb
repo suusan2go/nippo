@@ -13,4 +13,5 @@
 #
 
 class Family < ApplicationRecord
+  has_many :membership, class_name: Family::Membership
 end
