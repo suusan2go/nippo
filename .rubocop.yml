@@ -8,6 +8,7 @@ AllCops:
     - 'Rakefile'
     - 'bin/**/*'
     - 'db/**/*'
+    - 'db/schema.rb'
     - 'config/**/*'
     - 'vendor/**/*'
     - 'spec/**/*'

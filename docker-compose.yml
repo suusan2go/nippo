@@ -81,6 +81,7 @@ services:
       dockerfile: ./docker/rails/Dockerfile
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
+      - .rubocop.yml:/app/.rubocop.yml
       - ./app:/app/app
       - ./bin:/app/bin
       - ./config:/app/config
