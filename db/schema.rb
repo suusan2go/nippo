@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170223001804) do
+ActiveRecord::Schema.define(version: 20170223002417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,16 @@ ActiveRecord::Schema.define(version: 20170223001804) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["slug"], name: "index_families_on_slug", unique: true, using: :btree
+  end
+
+  create_table "family_memberships", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "family_id",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["family_id"], name: "index_family_memberships_on_family_id", unique: true, using: :btree
+    t.index ["user_id", "family_id"], name: "index_family_memberships_on_user_id_and_family_id", unique: true, using: :btree
+    t.index ["user_id"], name: "index_family_memberships_on_user_id", unique: true, using: :btree
   end
 
   create_table "user_social_profiles", force: :cascade do |t|
@@ -59,5 +69,7 @@ ActiveRecord::Schema.define(version: 20170223001804) do
   end
 
   add_foreign_key "diary_entries", "users"
+  add_foreign_key "family_memberships", "families"
+  add_foreign_key "family_memberships", "users"
   add_foreign_key "user_social_profiles", "users"
 end
