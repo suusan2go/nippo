@@ -3,6 +3,7 @@ require_relative '../lib/modules/family_subdomain.rb'
 Rails.application.routes.draw do
 
   constraints FamilySubdomain.new do
+    root 'family_root#index'
     namespace :api, defaults: { format: :json } do
       scope module: :families do
         resources :diary_entries, only: [:index, :create, :update]
