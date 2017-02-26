@@ -13,7 +13,7 @@
 #
 
 class Family < ApplicationRecord
-  has_many :membership, class_name: Family::Membership
+  has_many :memberships, class_name: Family::Membership
 
   validates :slug, format: { with: /\A[a-z0-9]+\z/ }
   validates :slug, exclusion: { in: %w(admin api) }
@@ -21,8 +21,9 @@ class Family < ApplicationRecord
   class << self
     def register(registerer:)
       ActiveRecord::Base.transaction do
-        create!(slug: Family::SlugFactory.general_from_email(email: registerer.email))
-        create_membership!(user: registerer)
+        family = create!(slug: Family::SlugFactory.general_from_email(email: registerer.email))
+        family.memberships.create!(user: registerer)
+        family
       end
     end
   end
