@@ -9,14 +9,17 @@
 #  user_id    :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  family_id  :integer          not null
 #
 # Indexes
 #
-#  index_diary_entries_on_user_id  (user_id)
+#  index_diary_entries_on_family_id  (family_id)
+#  index_diary_entries_on_user_id    (user_id)
 #
 # Foreign Keys
 #
 #  fk_rails_41491c9ce3  (user_id => users.id)
+#  fk_rails_5c850894cc  (family_id => families.id)
 #
 
 class DiaryEntry < ApplicationRecord

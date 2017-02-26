@@ -13,6 +13,7 @@
 #
 
 class Family < ApplicationRecord
+  has_many :diary_entries
   has_many :memberships, class_name: Family::Membership
 
   validates :slug, format: { with: /\A[a-z0-9]+\z/ }

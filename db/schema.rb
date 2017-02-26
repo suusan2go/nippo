@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170223002417) do
+ActiveRecord::Schema.define(version: 20170226142440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20170223002417) do
     t.integer  "user_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "family_id",  null: false
+    t.index ["family_id"], name: "index_diary_entries_on_family_id", using: :btree
     t.index ["user_id"], name: "index_diary_entries_on_user_id", using: :btree
   end
 
@@ -68,6 +70,7 @@ ActiveRecord::Schema.define(version: 20170223002417) do
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
+  add_foreign_key "diary_entries", "families"
   add_foreign_key "diary_entries", "users"
   add_foreign_key "family_memberships", "families"
   add_foreign_key "family_memberships", "users"
