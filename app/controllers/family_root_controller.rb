@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 class FamilyRootController < ApplicationController
-  before_action :rais_404, unless: :current_user
+  skip_before_action :require_sign_in
+  before_action :raise_404, unless: :current_user
   before_action :set_family
 
   def index
@@ -9,7 +10,7 @@ class FamilyRootController < ApplicationController
 
   private
 
-  def redirect_to_root_domain_top
+  def raise_404
     raise ActionController::RoutingError, 'render 404 for not sign in user'
   end
 

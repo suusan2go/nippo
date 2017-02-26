@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-class Api::Families::DiaryEntriesController < Api::ApplicationController
+class Api::Families::DiaryEntriesController < Api::Families::BaseController
   def index
-    @diary_entries = DiaryEntry.all.order(id: :desc)
+    @diary_entries = family.diary_entries.order(id: :desc)
     render_json(props: DiaryEntriesSerializer.new(model: @diary_entries))
   end
 
@@ -19,6 +19,6 @@ class Api::Families::DiaryEntriesController < Api::ApplicationController
   private
 
   def diary_entry_params
-    params.require(:diary_entry).permit(:title, :body)
+    params.require(:diary_entry).permit(:title, :body).merge(family_id: family.id)
   end
 end
