@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class Api::DiaryEntriesController < Api::ApplicationController
+class Api::Families::DiaryEntriesController < Api::ApplicationController
   def index
     @diary_entries = DiaryEntry.all.order(id: :desc)
     render_json(props: DiaryEntriesSerializer.new(model: @diary_entries))
